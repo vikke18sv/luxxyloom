@@ -16,21 +16,25 @@ function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+ 
 
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get('https://fakestoreapi.com/products');
-      dispatch(setProducts(response.data));
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      setLoading(false);
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get('https://fakestoreapi.com/products');
+        dispatch(setProducts(response.data));
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [dispatch]);
+
+  
+
 
   return (
     <div>
