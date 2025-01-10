@@ -95,6 +95,7 @@ const Products = () => {
           value={filterValues.high_price}
           onChange={(e) => handleFilterChange(e)}
         />
+        <h2>Category</h2>
         <select
           name="product_category"
           value={filterValues.product_category}
@@ -107,6 +108,7 @@ const Products = () => {
             </option>
           ))}
         </select>
+        <h2>Sort By</h2>
         <select
           name="sort_by"
           value={filterValues.sort_by}
